@@ -19,7 +19,7 @@ First, download the latest release from ![here](https://github.com/Lumorti/Quand
 
 ### Compiling The Simulator
 
-If the distributed executable doesn't work for you (I couldn't get static linking to work), you can compile it yourself on Linux using:
+If the distributed executable doesn't work for you (or you don't trust my binaries), you can compile it yourself on Linux using:
 ```bash
 sudo apt-get install g++ make libsdl2-dev -y
 git clone https://github.com/Lumorti/Quandoom
