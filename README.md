@@ -1,5 +1,5 @@
 
-### Quandoom
+## Quandoom
 
 It is a well-known fact that all useful computational devices ever created are ![capable of running DOOM](https://www.reddit.com/r/itrunsdoom/). Despite decades of active research, there is yet to be developed a single practical use for quantum computers. This changes today, with the release of Quandoom, a port of DOOM designed for a quantum computer, given as a single QASM file, using a mere 70,000 qubits and 80 million gates. Although such a quantum computer doesn't exist right now, Quandoom is efficiently simulatable on a classical computer, capable of running at 10-20 fps on my laptop using the accompanying lightweight (150 lines of C++) QASM simulator.
 
@@ -17,6 +17,8 @@ What advantages does Quandoom have over the original DOOM? Basically none, it's 
 
 First, download the latest release from ![here](https://github.com/Lumorti/Quandoom/releases/latest). Then, extract the zip and run the quantum circuit (quandoom.qasm) with the simulator provided, by dragging it onto simulator.exe (Windows) or by running "./simulator.bin quandoom.qasm" (Linux).
 
+### Compiling The Simulator
+
 If the distributed executable doesn't work for you (I couldn't get static linking to work), you can compile it yourself on Linux using:
 ```bash
 sudo apt-get install g++ make libsdl2-dev -y
@@ -25,7 +27,7 @@ cd Quandoom
 make
 ```
 
-### Changes versus the original
+### Changes Versus The Original
 
 Alright, so after like a year of working on this I got bored, so it doesn't have all the features from the original DOOM. More specifically:
 
@@ -39,7 +41,7 @@ Alright, so after like a year of working on this I got bored, so it doesn't have
 - imp fireball is hitscan rather than a projectile
 - minor tweaks regarding armor/health/damage to make it more reversible-friendly
 
-### Technical details
+### Technical Details
 
 Latest release uses: 72376 total qubits, 8376 qubits not counting the screen, of which 6986 are ancilla qubits, file has 83,651,224 lines, so at least that many gates (will actually be more, since many lines are subroutines).
 
