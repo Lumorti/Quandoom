@@ -15,13 +15,17 @@ What advantages does Quandoom have over the original DOOM? Basically none, it's 
 
 ### How To Play It
 
-First, download the latest release from ![here](https://github.com/Lumorti/Quandoom/releases/latest). Then, extract the zip and run the quantum circuit (quandoom.qasm) with the simulator provided, by dragging it onto simulator.exe (Windows) or by running "./simulator.bin quandoom.qasm" (Linux).
+First, download the latest release for your system from ![here](https://github.com/Lumorti/Quandoom/releases/latest). 
+
+Then extract the zip and run the quantum circuit (quandoom.qasm) with the simulator provided, by dragging it onto simulator.exe (Windows) or by running "./simulator.AppImage quandoom.qasm" (Linux).
+
+Please note - it will use about 5-6 GB of ram and take a while since it's a very large circuit file.
 
 ### Compiling The Simulator
 
 If the distributed executable doesn't work for you (or you don't trust my binaries), you can compile it yourself on Linux using:
 ```bash
-sudo apt-get install g++ make libsdl2-dev -y
+sudo apt-get install g++ make libsdl2-dev libomp-dev -y
 git clone https://github.com/Lumorti/Quandoom
 cd Quandoom
 make
@@ -43,11 +47,11 @@ Alright, so after like a year of working on this I got bored, so it doesn't have
 
 ### Technical Details
 
-Latest release uses: 72376 total qubits, 8376 qubits not counting the screen, of which 6986 are ancilla qubits, file has 83,651,224 lines, so at least that many gates (will actually be more, since many lines are subroutines).
+The circuit needs 72376 total qubits, 8376 qubits not counting the screen, of which 6986 are ancilla qubits. The circuit file has 83,651,224 lines, so at least that many gates (will actually be more, since many lines are subroutines).
 
 Please note that the simulator is tailor-made for the this QASM file, it will not work on a general QASM file. The Quandoom QASM file is also not completely compliant, as described in a comment at the top of the file, some qubit lists are abbreviated as "ALLQUBITS" because if I didn't do that then it would be a >30GB file.
 
-For now I'm still tidying up the engine code, but basically I have about 8000 lines of c++ functions allowing a number of reversible binary and arithmetic operations on quantum registers, for example "flipIfLessThanOrEqualTo(regToFlip, regToCheck, valueToCheck)" which flips all qubits in a register if the decimal value of another register is less than some given value. Everything is done with integers. Using such functions I then wrote a small 3D engine as well as all the game logic. Also present is an ancilla system, a garbage system, as well as a quantum subroutine system and many other handy tools. Mapping was done by hand. Sprite scaling and ray casting are baked-in (i.e. pre-calculated). Parallelisation is done at the rendering stage, such that the list of render objects is split between cores and comments are left in the QASM to tell the simulator where to jump based on OpenMP thread ID. Maybe soon I'll make a little document and put it on the arXiv if there's interest. Or, if you want the code to expand it, let me know and I'll rush the tidying up.
+For now I'm still tidying up the engine code, but basically I have about 8000 lines of c++ functions allowing a number of reversible binary and arithmetic operations on quantum registers, for example "flipIfLessThanOrEqualTo" which flips all qubits in a register if the value of another register is less than some given value. Everything is done with integers. Using such functions I then wrote a small 3D engine as well as all the game logic. Also present is an ancilla system, a garbage system, as well as a quantum subroutine system and many other handy tools. Mapping and spritework was done by hand. Sprite scaling and ray casting are baked-in (i.e. pre-calculated). Parallelisation is done at the rendering stage, such that the list of render objects is split between cores and comments are left in the QASM to tell the simulator where to jump based on OpenMP thread ID. Maybe soon I'll make a little document and put it on the arXiv if there's interest. Or, if you want the code to expand or improve it, let me know and I'll rush the tidying up.
 
 ### Legal Disclaimer
 
