@@ -1,3 +1,4 @@
+#include <iostream>
 #include <fstream>
 #include <vector>
 #include <string>
@@ -8,6 +9,7 @@
 
 // Entry point
 int main(int argc, char** argv) {
+    if (argc < 2) {std::cout << "Usage: ./simulator <circuit_file>" << std::endl; return 1;}
 
     // Load the circuit file
     std::vector<std::vector<std::vector<int>>> circuits(1);
@@ -40,6 +42,7 @@ int main(int argc, char** argv) {
             }
             if (line[0] == '#' && line[1] == 'w') {qubits = {-1};}
             else if (line[0] == 'h') {qubits.insert(qubits.begin()+1, info[0]);}
+            else if (line[0] == '#' && line[1] == 'o') {qubits[0] = info[0];}
             else if (line[0] == '#' && line[1] == 'j') {qubits[0] = -qubits[1]; qubits.erase(qubits.begin()+1);}
             if (line[0] == '#' && line[1] == 'q') {info = qubits; info.erase(info.begin());}
             else if (line[0] == 'g') {currentFunction = qubits[1]; circuits.resize(std::max(circuits.size(), size_t(qubits[1]+1)));}
