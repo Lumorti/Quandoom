@@ -1,15 +1,13 @@
 
 ## Quandoom
 
-It is a well-known fact that all useful computational devices ever created are [capable of running DOOM](https://www.reddit.com/r/itrunsdoom/). Despite decades of active research, there is yet to be developed a single practical use for quantum computers. This changes today, with the release of Quandoom, a port of DOOM designed for a quantum computer, given as a single QASM file, using a mere 70,000 qubits and 80 million gates. Although such a quantum computer doesn't exist right now, Quandoom is efficiently simulatable on a classical computer, capable of running at 10-20 fps on my laptop using the accompanying lightweight (150 lines of C++) QASM simulator.
+It is a well-known fact that all useful computational devices ever created are [capable of running DOOM](https://www.reddit.com/r/itrunsdoom/). Despite decades of active research, there is yet to be developed a single practical use for quantum computers. This changes today, with the release of Quandoom, a port of the first level of DOOM designed for a quantum computer, given as a single QASM file, using a mere 70,000 qubits and 80 million gates. Although such a quantum computer doesn't exist right now, Quandoom is efficiently simulatable on a classical computer, capable of running at 10-20 fps on my laptop using the accompanying lightweight (150 lines of C++) QASM simulator.
 
 The game loop is as follows:
 1) the user pressing a key sets the value of one of the input qubits
 2) the QASM file containing all of the quantum gates is applied to the entire state
 3) the last 64,000 qubits are measured and displayed as a 320 x 200 screen of binary pixels
 4) the screen and input qubits are reset and the process repeats
-
-What advantages does Quandoom have over the original DOOM? None, it's just for fun, although due to the Hadamards it would mean playing it on a quantum device would make the random chances *truly* random. It might also use less energy at a theoretical level, due to the reversible nature of everything apart from the screen measurement.
 
 ![Gif of Quandoom](example.gif)
 
@@ -22,16 +20,6 @@ First, download the latest release for your system from ![here](https://github.c
 Windows: run the quantum circuit (quandoom.qasm) with the simulator by dragging it onto simulator.exe
 
 Linux: add run permissions to the simulator using `chmod +x ./simulator.AppImage` and then run the circuit by running `./simulator.AppImage quandoom.qasm`
-
-### Compiling The Simulator
-
-If the distributed executable doesn't work for you (or you don't trust my binaries), you can compile it yourself on Linux using:
-```bash
-sudo apt-get install g++ make libsdl2-dev libomp-dev -y
-git clone https://github.com/Lumorti/Quandoom
-cd Quandoom
-make
-```
 
 ### Changes Versus The Original
 
@@ -46,6 +34,16 @@ Alright, so after like a year of working on this I got bored, so it doesn't have
 - no automap, because eh
 - imp fireball is hitscan rather than a projectile
 - minor tweaks regarding armor/health/damage to make it more reversible-friendly
+
+### Compiling The Simulator
+
+If the distributed executable doesn't work for you (or you don't trust my binaries), you can compile it yourself on Linux using:
+```bash
+sudo apt-get install g++ make libsdl2-dev libomp-dev -y
+git clone https://github.com/Lumorti/Quandoom
+cd Quandoom
+make
+```
 
 ### Technical Details
 
