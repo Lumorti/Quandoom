@@ -13,6 +13,8 @@ What advantages does Quandoom have over the original DOOM? Basically none, it's 
 
 ![Screenshot of Quandoom](example.png)
 
+![Gif of Quandoom](example.gif)
+
 ### How To Play It
 
 _Please note - it will use about 5-6 GB of ram and take a while to load since it's a very large circuit file._
