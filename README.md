@@ -9,17 +9,19 @@ The game loop is as follows:
 3) the last 64000 qubits are measured and displayed as a 320 x 200 grid of binary pixels
 4) screen qubits are reset and the process repeats
 
-What advantages does Quandoom have over the original DOOM? Basically none, it's mostly just for fun, although due to the Hadamards it would mean playing it on a quantum device would make the random chances **truly** random. It might also use less energy at a theoretical level, due to the reversible nature of everything apart from the screen measurement.
+What advantages does Quandoom have over the original DOOM? Basically none, it's mostly just for fun, although due to the Hadamards it would mean playing it on a quantum device would make the random chances *truly* random. It might also use less energy at a theoretical level, due to the reversible nature of everything apart from the screen measurement.
 
 ![Screenshot of Quandoom](example.png)
 
 ### How To Play It
 
-First, download the latest release for your system from ![here](https://github.com/Lumorti/Quandoom/releases/latest). 
+_Please note - it will use about 5-6 GB of ram and take a while to load since it's a very large circuit file._
 
-Then extract the zip and run the quantum circuit (quandoom.qasm) with the simulator provided, by dragging it onto simulator.exe (Windows) or by running "./simulator.AppImage quandoom.qasm" (Linux).
+First, download the latest release for your system from ![here](https://github.com/Lumorti/Quandoom/releases/latest) and unzip it.
 
-Please note - it will use about 5-6 GB of ram and take a while since it's a very large circuit file.
+Windows: run the quantum circuit (quandoom.qasm) with the simulator by dragging it onto simulator.exe
+
+Linux: add run permissions to the simulator using `chmod +x ./simulator.AppImage` and then run the circuit by running `./simulator.AppImage quandoom.qasm`
 
 ### Compiling The Simulator
 
@@ -55,4 +57,4 @@ For now I'm still tidying up the engine code, but basically I have about 8000 li
 
 ### Legal Disclaimer
 
-This is a recreation of the first level of the original DOOM game, which was released as shareware by Id Software in 1997. This project is released as a non-commercial open-source project made in good faith in relation to the "anything can run DOOM" internet meme, for which a vast number of fan-made ports to various devices already exist. This project does not serve as a replacement for the original DOOM, acting purely as a technical demonstration / parody, a fact which is obvious to anyone using it. DOOM, its characters, assets and level design are the intellectual property of Id Software. The author of this work advises anyone who actually wants to play the game to download the official shareware version. 
+This is a recreation from scratch of the first level of the original DOOM game, which was released as shareware by Id Software in 1997. This project is released as a non-commercial open-source project made in good faith in relation to the "anything can run DOOM" internet meme, for which a vast number of fan-made ports to various devices already exist. This project does not serve as a replacement for the original DOOM, acting purely as a joke/parody, a fact which should be obvious to anyone using it. DOOM, its characters, assets and level design are the intellectual property of Id Software. The author of this work advises anyone who actually wants to play the game to download the official shareware version. 
