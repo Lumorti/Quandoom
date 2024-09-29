@@ -11,8 +11,6 @@ The game loop is as follows:
 
 What advantages does Quandoom have over the original DOOM? Basically none, it's mostly just for fun, although due to the Hadamards it would mean playing it on a quantum device would make the random chances *truly* random. It might also use less energy at a theoretical level, due to the reversible nature of everything apart from the screen measurement.
 
-![Screenshot of Quandoom](example.png)
-
 ![Gif of Quandoom](example.gif)
 
 ### How To Play It
