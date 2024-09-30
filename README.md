@@ -47,7 +47,7 @@ make
 
 You can also compile it on macOS using:
 ```bash
-sudo apt-get install g++ make libsdl2-dev libomp-dev -y
+brew install libomp
 git clone https://github.com/Lumorti/Quandoom
 cd Quandoom
 make macos
