@@ -45,6 +45,14 @@ cd Quandoom
 make
 ```
 
+You can also compile it on macOS using:
+```bash
+brew install libomp sdl2
+git clone https://github.com/Lumorti/Quandoom
+cd Quandoom
+make macos
+```
+
 ### Technical Details
 
 The circuit needs 72,376 total qubits, 8,376 qubits not counting the screen, of which 6,986 are ancilla qubits. The circuit file has 83,651,224 lines, so at least that many gates (will actually be more, since many lines are subroutines).
