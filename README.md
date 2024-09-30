@@ -47,7 +47,7 @@ make
 
 You can also compile it on macOS using:
 ```bash
-brew install libomp
+brew install libomp sdl2
 git clone https://github.com/Lumorti/Quandoom
 cd Quandoom
 make macos
