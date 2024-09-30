@@ -45,7 +45,7 @@ cd Quandoom
 make
 ```
 
-You can also compile it on macOS using:
+Or on macOS using:
 ```bash
 brew install libomp sdl2
 git clone https://github.com/Lumorti/Quandoom
