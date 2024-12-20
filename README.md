@@ -1,7 +1,7 @@
 
 ## Quandoom
 
-It is a well-known fact that all useful computational devices ever created are [capable of running DOOM](https://www.reddit.com/r/itrunsdoom/). Despite decades of active research, there is yet to be developed a single practical use for quantum computers. This changes today, with the release of Quandoom, a port of the first level of DOOM designed for a quantum computer, given as a single QASM file, using a mere 70,000 qubits and 80 million gates. Although such a quantum computer doesn't exist right now, Quandoom is efficiently simulatable on a classical computer, capable of running at 10-20 fps on my laptop using the accompanying lightweight (150 lines of C++) QASM simulator.
+It is a well-known fact that all useful computational devices ever created are [capable of running DOOM](https://www.reddit.com/r/itrunsdoom/). Despite decades of active research, there is yet to be developed a single practical use for quantum computers. This changes today, with the release of Quandoom, a port of the first level of DOOM designed for a quantum computer, given as a single QASM file, using a mere 70,000 qubits and 80 million gates. Although such a quantum computer doesn't exist right now, Quandoom is efficiently simulatable on a classical computer, capable of running at 10-20 fps on my laptop using the accompanying lightweight (150 lines of C++) QASM simulator. The code used to generate the circuit can be found [here](https://github.com/Lumorti/QuandoomEngine). There is also an arXiv document explaining things [here](https://arxiv.org/abs/2412.12162v1).
 
 The game loop is as follows:
 1) the user pressing a key sets the value of one of the input qubits
@@ -52,14 +52,6 @@ git clone https://github.com/Lumorti/Quandoom
 cd Quandoom
 make macos
 ```
-
-### Technical Details
-
-The circuit needs 72,376 total qubits, 8,376 qubits not counting the screen, of which 6,986 are ancilla qubits. The circuit file has 83,651,224 lines, so at least that many gates (will actually be more, since many lines are subroutines).
-
-Please note that the simulator is tailor-made for the this QASM file, it will not run a general QASM file. The Quandoom QASM file is also not *completely* QASM compliant, as described in a comment at the top of the QASM, but only because some qubit lists are abbreviated as "ALLQUBITS" because if I didn't do that then it'd be a >30GB file. The rest of the instructions are all valid n-controlled Toffolis and Hadamards, but of course mostly Toffolis since it's replicating a classical algorithm. There is no quantum advantage, it's just a classical algorithm written in a format compatible with a quantum computer. It was also pointed out to me that "x q1 q2" (to apply an x gate to q1 and q2 seperately) is not QASM compliant, but it's still a valid quantum circuit and without that compression of instructions the file would be even huger.
-
-The code used to generate the circuit can be found [here](https://github.com/Lumorti/QuandoomEngine). Basically I have about 8,000 lines of c++ functions allowing a number of reversible binary and arithmetic operations on quantum registers, for example "flipIfLessThanOrEqualTo" which flips all qubits in a register if the value of another register is less than some given value. Everything is done with integers. Using such functions I then wrote a small 3D engine as well as all the game logic. Also present is an ancilla system, a garbage system, as well as a quantum subroutine system and many other handy tools. Mapping and spritework was done by hand. Sprite scaling and ray casting are baked-in (i.e. pre-calculated). Parallelisation is done at the rendering stage, such that the list of render objects is split between cores and comments are left in the QASM to tell the simulator where to jump based on OpenMP thread ID.
 
 ### Legal Disclaimer
 
